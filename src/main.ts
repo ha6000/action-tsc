@@ -5,8 +5,9 @@ import { join } from 'path';
 async function run() {
 	const project = getInput('project');
 	const build = getInput('build');
+	const normal = getInput('normal');
 	console.log(`##[add-matcher]${join(__dirname, '..', '.github', 'tsc.json')}`);
-	const args = [
+	var args = [
 		`${join(process.cwd(), 'node_modules/typescript/bin/tsc')}`,
 		'--noEmit',
 		'--noErrorTruncation',
@@ -15,6 +16,10 @@ async function run() {
 		'--incremental',
 		'false',
 	];
+	if (normal) {
+		// removes all arguments
+		args = [args[0]];
+	}
 	if (project) {
 		args.push('--project', project);
 	}

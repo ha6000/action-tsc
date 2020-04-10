@@ -27,6 +27,29 @@ jobs:
       uses: icrawl/action-tsc@v1
 ```
 
+### Passing command-line parameters to `tsc`
+
+You can pass the `--project` parameter to `tsc` if your `tsconfig.json` is not in the root of your project:
+
+```yml
+    - name: tsc compile
+      uses: iCrawl/action-tsc@v1
+      with:
+        project: subdirectorywith_tsconfig
+```
+
+### Normal typescript
+
+You can disable all command line arguments with the normal flag
+
+```yml
+    - name: tsc compile
+      uses: iCrawl/action-tsc@v1
+      with:
+        normal: true
+```
+
+
 ## Contributing
 
 1. Fork it!
