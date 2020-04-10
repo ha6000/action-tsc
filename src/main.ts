@@ -7,7 +7,7 @@ async function run() {
 	const build = getInput('build');
 	const normal = getInput('normal');
 	console.log(`##[add-matcher]${join(__dirname, '..', '.github', 'tsc.json')}`);
-	var args = [
+	let args = [
 		`${join(process.cwd(), 'node_modules/typescript/bin/tsc')}`,
 		'--noEmit',
 		'--noErrorTruncation',
